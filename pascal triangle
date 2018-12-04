@@ -1,11 +1,12 @@
 
 
+
 public class pascaltriangle
 {
     public static void main(String[] args) {
         System.out.println(zerocheck(new int[]{1, 0, 0, 0, 0, 0, 0}));
-        System.out.println(loop(new int[] {1,0,1,0,0,1}));
-        System.out.println(pascal(3));
+
+        System.out.println(pascal(7));
 
 
     }
@@ -32,19 +33,48 @@ public static int sum(int number)
     int kumber=(number*number)/2+number/2;
     return kumber;
 }
-public static int zerocheck(int[] a)
+public static boolean zerocheck(int[] a)
 {
     int length=a.length;
     for (int i = length-1; i > -1; i--)
     {
-      if (a[i]!=0)
+      if (a[i]==0)
       {
-          return i;
+          return true;
+      }
+      else
+      {
+          return false;
       }
     }
-    return -1;
+    return false;
 
 }
+    public static boolean onecheck(int[] a)
+    {
+        int length=a.length;
+        for (int i = length-1; i > -1; i--)
+        {
+            if (a[i]==1)
+            {
+               return true;
+            }
+        }
+        return false;
+
+    }
+    public static boolean doubleOnecheck(int[] a)
+    {
+        for (int i =0; 2> i; i++)
+        {
+            if (onecheck(a))
+            {
+                return true;
+            }
+            return false;
+        }
+    return false;}
+
 public static int [] loop(int[] a)
 {
     int length=a.length;
@@ -68,27 +98,61 @@ public static int [] loop(int[] a)
 
     return a;
 }
+    public static int [] loopAdd(int[] a)
+    {
+        int length=a.length;
+        int[] b= new int[length];
+        for (int j = 0; j <=length-1 ; j++)
+        {
+            b[j]=a[j];
+        }
+        for (int i = 0; i <=length-1 ; i++)
+        {
+            if (0<i)
+            {
+                a[i]= b[i - 1];
+            }
+            else
+            {
+                a[0]=b[b.length-1];
+            }
+        }
+        for (int j = 0; j <=length-1 ; j++)
+        {
+       a[j]=a[j]+b[j];
+            System.out.print(a[j]);
+        }
+        return a;
+    }
+
+
+    public static int[] set(int[] a)
+    {
+        int[] b=a;
+        return b;
+    }
 public static int[] pascal(int a)
 {
-    int[] b= new int[sumTwoExp(a)];
+    int[] b= new int[a+1];
     for (int i = 0; i <2 ; i++)
     {
         b[i]=1;
         System.out.print(b[i]);
     }
-    int[] c=loop(b);
     System.out.println();
-    for (int j = 0; j < b.length ; j++)
+
+    for (int j = 0; j <a-1 ; j++)
     {
-        b[j]=c[j]+b[j];
-        System.out.print(b[j]);
-
+       loopAdd(b);
+       if (doubleOnecheck(b))
+       {
+           System.out.println();
+       }
     }
-
-
-
-
-
+    for (int k=0;k<=b.length-1;k++)
+    {
+            System.out.print(b[k]);
+    }
     return b;
 
 }
