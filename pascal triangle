@@ -6,7 +6,7 @@ public class pascaltriangle
     public static void main(String[] args) {
         System.out.println(zerocheck(new int[]{1, 0, 0, 0, 0, 0, 0}));
 
-        System.out.println(pascal(7));
+        System.out.println(pascal(8));
 
 
     }
@@ -75,29 +75,6 @@ public static boolean zerocheck(int[] a)
         }
     return false;}
 
-public static int [] loop(int[] a)
-{
-    int length=a.length;
-    int[] b= new int[length];
-    for (int j = 0; j <=length-1 ; j++)
-    {
-        b[j]=a[j];
-    }
-    System.out.println();
-    for (int i = 0; i <=length-1 ; i++)
-    {
-       if (0<i)
-       {
-           a[i]= b[i - 1];
-       }
-       else
-       {
-           a[0]=b[b.length-1];
-       }
-    }
-
-    return a;
-}
     public static int [] loopAdd(int[] a)
     {
         int length=a.length;
@@ -124,13 +101,6 @@ public static int [] loop(int[] a)
         }
         return a;
     }
-
-
-    public static int[] set(int[] a)
-    {
-        int[] b=a;
-        return b;
-    }
 public static int[] pascal(int a)
 {
     int[] b= new int[a+1];
@@ -156,22 +126,5 @@ public static int[] pascal(int a)
     return b;
 
 }
-public static void add()
-{
-    int[] a= new int[]{1, 2, 3, 4, 5};
-    int[] b= new int[]{1,1,1,1,0};
-    int []c= new int [5];
 
-    for (int j = 0; j <5 ; j++)
-    {
-        c[j]=a[j]+b[j];
-
-    }
-    for (int i = 0; i <5 ; i++)
-    {
-        System.out.print(c[i]);
-
-    }
-
-}
 }
