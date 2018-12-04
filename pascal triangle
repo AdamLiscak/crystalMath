@@ -1,0 +1,132 @@
+
+public class pascaltriangle
+{
+    public static void main(String[] args) {
+        System.out.println(zerocheck(new int[]{1, 0, 0, 0, 0, 0, 0}));
+        System.out.println(loop(new int[] {1,0,1,0,0,1}));
+
+
+    }
+
+    public static int exp(int base, int exponent)
+
+    {
+        int c=base;
+            for (int i = 1; i < exponent; i++)
+            {
+                base=c*base;
+                System.out.println(base);
+            }
+    return base;
+    }
+
+    public static int sumTwoExp(int exponent)
+    {
+        int sum=exp(2,exponent)-2;
+        return sum;
+    }
+public static int sum(int number)
+{
+    int kumber=(number*number)/2+number/2;
+    return kumber;
+}
+public static int zerocheck(int[] a)
+{
+    int length=a.length;
+    for (int i = length-1; i > -1; i--)
+    {
+      if (a[i]!=0)
+      {
+          return i;
+      }
+    }
+    return -1;
+
+}
+public static int [] loop(int[] a)
+{
+    int length=a.length;
+    int[] b= new int[length];
+    for (int j = 0; j <=length-1 ; j++)
+    {
+        b[j]=a[j];
+        System.out.print(b[j]);
+    }
+    System.out.println();
+    for (int i = 0; i <=length-1 ; i++)
+    {
+       if (0<i)
+       {
+           a[i]= b[i - 1];
+       }
+       else
+       {
+           a[0]=b[b.length-1];
+       }
+        System.out.print(a[i]);
+    }
+
+    return a;
+}
+public static void add()
+{
+    int[] a= new int[]{1, 2, 3, 4, 5};
+    int[] b= new int[]{1,1,1,1,0};
+    int []c= new int [5];
+
+    for (int j = 0; j <5 ; j++)
+    {
+        c[j]=a[j]+b[j];
+
+    }
+    for (int i = 0; i <5 ; i++)
+    {
+        System.out.print(c[i]);
+
+    }
+
+}
+public static int[] pascal (int a)
+
+    {
+        int[] arr= new int[sumTwoExp(a)];
+        arr[0]=1;
+        arr[1]=1;
+        int kMax=2;
+        int c=0;
+        for (int i = 0; i < a; i++)
+        {
+            if (i > 2) {
+                for (int k = 0; k < i+2; k++)
+                {
+                    if (k == 0)
+                    {
+                        arr[i] = 1;
+                    }
+                    else if (k == i-c)
+                    {
+                        arr[i] = 1;
+                        c=(i-k)+kMax;
+                        kMax++;
+
+                    }
+                    else
+                    {
+                        arr[i]=arr[i-kMax]+arr[i-(kMax+1)];
+                        System.out.println(kMax);
+                    }
+                    System.out.println("hello");
+
+                }
+                System.out.println();
+            }
+
+
+        }
+        for (int j = 0; j <sum(a)-1 ; j++)
+        {
+            System.out.print(arr[j]);
+        }
+    return arr;
+    }
+}
