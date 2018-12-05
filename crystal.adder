@@ -1,0 +1,36 @@
+public class addnumber {
+    public static void main(String[] args) {
+        addnumbers(4,1);
+
+    }
+    public static void addnumbers(int a, int b)
+    {
+        int c = 0;
+        while (true)
+        {
+            if (c==0)
+            {
+                c=a+b;
+            }
+            if (c%2==0)
+            {
+                System.out.println(c);
+                break;
+            }
+            c +=a;
+            if (c%2==0)
+            {
+                System.out.println(c);
+                break;
+            }
+            c+=b;
+            if (c%2==0)
+            {
+                System.out.println(c);
+                break;
+            }
+
+        }
+
+    }
+}
