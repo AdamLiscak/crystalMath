@@ -1,0 +1,46 @@
+public class pascaltriangle2
+{
+    public static void main(String[] args) {
+
+        System.out.println(pascal(21));
+    }
+    public static int [] loopAdd(int[] a)
+    {
+        int[] b= a.clone();
+        for (int i = 0; i <=a.length-1 ; i++)
+        {
+            if (0<i)
+            {
+                a[i]= b[i - 1];
+            }
+            else
+            {
+                a[0]=b[b.length-1];
+            }
+        }
+        for (int j = 0; j <=a.length-1 ; j++)
+        {
+            a[j]=a[j]+b[j];
+            if(a[j]!=0)
+            {
+                System.out.print(a[j] + " ");
+            }
+        }
+        return a;
+    }
+    public static int[] pascal(int a)
+    {
+        int[] b= new int[a+1];
+        b[0]=1;
+        for (int j = 0; j <a-1 ; j++)
+        {
+            loopAdd(b);
+
+                System.out.println();
+
+        }
+        return b;
+
+    }
+
+}
